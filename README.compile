@@ -7,7 +7,7 @@ unset CXX
 export CC=aarch64-linux-gnu-gcc
 export CXX=aarch64-linux-gnu-g++
 ./bootstrap.sh 
-./configure --host=aarch64-linux-gnu             --prefix=$PWD/install-arm64             --disable-shared             --enable-static             CFLAGS="-static -O2"             LDFLAGS="-static"
+./configure --host=aarch64-linux-gnu             --prefix=$PWD/install-arm64             --disable-shared             --enable-static-bin             CFLAGS="-static -O2"             LDFLAGS="-static"
 
 make -j 8
 make install
@@ -16,7 +16,7 @@ make install
 ./configure \
     --prefix=$PWD/install-x86_64 \
     --disable-shared \
-    --enable-static \
+    --enable-static-bin \
     CFLAGS="-static -O2" \
     LDFLAGS="-static"
 
