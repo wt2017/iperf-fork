@@ -1,7 +1,24 @@
-  196  export CC=aarch64-linux-gnu-gcc
-  197  export CXX=aarch64-linux-gnu-g++
-  198  ./bootstrap.sh 
-  199  ./configure --host=aarch64-linux-gnu             --prefix=$PWD/install-arm64             --disable-shared             --enable-static             CFLAGS="-static -O2"             LDFLAGS="-static"
-  200  git status
-  201  make -j 8
-  202  make install
+# clean
+make distclean
+unset CC
+unset CXX
+
+# arm64
+export CC=aarch64-linux-gnu-gcc
+export CXX=aarch64-linux-gnu-g++
+./bootstrap.sh 
+./configure --host=aarch64-linux-gnu             --prefix=$PWD/install-arm64             --disable-shared             --enable-static             CFLAGS="-static -O2"             LDFLAGS="-static"
+
+make -j 8
+make install
+
+# x86-64
+./configure \
+    --prefix=$PWD/install-x86_64 \
+    --disable-shared \
+    --enable-static \
+    CFLAGS="-static -O2" \
+    LDFLAGS="-static"
+
+make -j 8
+make install

@@ -32,3 +32,4 @@ examples/mic
 examples/mis
 .vscode/
 install-arm64/
+install-x86_64/
